@@ -12,7 +12,7 @@ Copy `radio.service` to `/etc/systemd/system/` and enable service with:
 ```shell
 sudo systemctl enable radio.service
 sudo systemclt start radio.service
-111
+```
 
 TODO - put the service configuration in a setup file
 
