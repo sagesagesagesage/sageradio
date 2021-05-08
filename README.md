@@ -1,10 +1,7 @@
 # sageradio
 Raspberry pi radio tuner
 
-
-
-
-
+[[_TOC_]]
 
 ### systemd service
 
@@ -20,7 +17,6 @@ debugging service:
 ```shell
 sudo journalctl -u radio.service | tail
 ```
-
 
 ### forcing mono:
 
