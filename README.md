@@ -1,8 +1,6 @@
 # sageradio
 Raspberry pi radio tuner
 
-[[_TOC_]]
-
 ### systemd service
 
 Copy `radio.service` to `/etc/systemd/system/` and enable service with:
