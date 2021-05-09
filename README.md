@@ -1,10 +1,10 @@
 # sageradio
 Raspberry pi radio tuner
-
-
-
-
-
+### requirements:
+install vlc
+```shell
+sudo apt install vlc
+```
 
 ### systemd service
 
@@ -20,7 +20,6 @@ debugging service:
 ```shell
 sudo journalctl -u radio.service | tail
 ```
-
 
 ### forcing mono:
 
