@@ -16,7 +16,6 @@ GPIO.setmode(GPIO.BCM)
 streams_loc = "/home/pi/"
 streams = ["wfmu.pls", "wfmu_rock.pls", "DI.FM - Trance.pls", "chirpradio.m3u", "ICRTFM-MP3.m3u", "bayern1obb_2.m3u"]
 
-
 def play(cmd):
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True, preexec_fn = os.setsid)
     return p
