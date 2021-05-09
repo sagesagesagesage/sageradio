@@ -29,8 +29,9 @@ load-module module-remap-sink sink_name=mono master=alsa_output.platform-bcm2835
 set-default-sink mono
 ```
 
-or for the hifi-hat (command pacmd to find sink name, seems like you need to play some audio before running this command to get pulse daemon started)
+or for the hifiberry-amp-hat (command pacmd to find sink name, seems like you need to play some audio before running this command to get pulse daemon started)
 ```shell
-load-module module-remap-sink sink_name=mono master=alsa_output.platform-bcm2835_audio.analog-stereo channels=2 channel_map=mono,mono
+load-module module-remap-sink sink_name=mono master=alsa_output.platform-soc_sound.stereo-fallback channels=2 channel_map=mono,mono
+
 set-default-sink mono
 ```
