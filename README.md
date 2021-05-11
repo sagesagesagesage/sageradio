@@ -37,4 +37,4 @@ set-default-sink mono
 ```
 
 ### hardware configuration: 
-![Channel Assignment](channel_assignment.tif)
+![Channel Assignment](channel_assignment.png)
