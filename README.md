@@ -35,3 +35,6 @@ load-module module-remap-sink sink_name=mono master=alsa_output.platform-soc_sou
 
 set-default-sink mono
 ```
+
+### hardware configuration: 
+![Channel Assignment](channel_assignment.png)
