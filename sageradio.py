@@ -62,6 +62,7 @@ while True:
     if (GPIO.input(power_sw)):
         GPIO.output(station_led, GPIO.LOW)
         os.system("killall vlc")
+        last_active_index = -1
     else:
         if active_index == -1:
             val = random.random()
