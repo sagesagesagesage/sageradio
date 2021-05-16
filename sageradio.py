@@ -13,7 +13,7 @@ GPIO.setmode(GPIO.BCM)
 
 #google configuring pulse audio for mono - it works! 
 
-streams_loc = "/home/pi/"
+streams_loc = "/home/pi/sageradio/"
 streams = ["wfmu.pls", "wfmu_rock.pls", "DI.FM - Trance.pls", "chirpradio.m3u", "ICRTFM-MP3.m3u", "bayern1obb_2.m3u"]
 
 def play(cmd):

@@ -5,8 +5,8 @@ After=network-online.target
 Type=simple
 User=pi
 Environment=XDG_RUNTIME_DIR=/run/user/1000
-ExecStart=python /home/pi/sageradio.py
-WorkingDirectory=/home/pi
+ExecStart=python /home/pi/sageradio/sageradio.py
+WorkingDirectory=/home/pi/sageradio
 StandardOutput=inherit
 StandardError=inherit
 [Install]
