@@ -7,20 +7,19 @@ sudo apt install vlc
 ```
 
 ### systemd service
-
-~Copy `radio.service` to `/etc/systemd/system/` and enable service with:~
-Copy `radio.service` to `~.config/systemd/user` (need to make this path probably) and enable service with:
-
+Copy `radio.service` to `~/local/share/systmed/user/` and enable service with:
 ```shell
-sudo systemctl enable radio.service
-sudo systemctl start radio.service
+systemctl --user enable radio.service
+systemctl --user start radio.service
 ```
+
+since this is a user service - autologin needs to be enabled on with `rpi-config` utility
 
 TODO - put the service configuration in a setup file
 
 debugging service:
 ```shell
-sudo journalctl -u radio.service | tail
+journalctl --user-unit radio.service | tail
 ```
 
 ### forcing mono:
@@ -40,3 +39,7 @@ set-default-sink mono
 
 ### hardware configuration: 
 ![Channel Assignment](channel_assignment.png)
+
+### other notes
+if using an i2s dac make sure gpio channels used in radio script are not overlapping with dac interface
+
