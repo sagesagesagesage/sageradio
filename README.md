@@ -14,6 +14,8 @@ systemctl --user enable radio.service
 systemctl --user start radio.service
 ```
 
+since this is a user service - autologin needs to be enabled on with `rpi-config` utility
+
 TODO - put the service configuration in a setup file
 
 debugging service:
