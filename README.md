@@ -38,3 +38,7 @@ set-default-sink mono
 
 ### hardware configuration: 
 ![Channel Assignment](channel_assignment.png)
+
+### other notes
+if using an i2s dac make sure gpio channels used in radio script are not overlapping with dac interface
+
