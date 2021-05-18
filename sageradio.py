@@ -20,7 +20,7 @@ def play(cmd):
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True, preexec_fn = os.setsid)
     return p
 
-switches = [2,3,4,17,27,22]
+switches = [5,6,4,17,27,22]
 station_led = 10
 power_sw = 9
 

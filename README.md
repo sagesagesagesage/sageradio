@@ -8,7 +8,9 @@ sudo apt install vlc
 
 ### systemd service
 
-Copy `radio.service` to `/etc/systemd/system/` and enable service with:
+~Copy `radio.service` to `/etc/systemd/system/` and enable service with:~
+Copy `radio.service` to `~.config/systemd/user` (need to make this path probably) and enable service with:
+
 ```shell
 sudo systemctl enable radio.service
 sudo systemctl start radio.service
