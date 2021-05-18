@@ -8,17 +8,17 @@ sudo apt install vlc
 
 ### systemd service
 
-Copy `radio.service` to `/etc/systemd/system/` and enable service with:
+Copy `radio.service` to `~/local/share/systmed/user/` and enable service with:
 ```shell
-sudo systemctl enable radio.service
-sudo systemctl start radio.service
+systemctl --user enable radio.service
+systemctl --user start radio.service
 ```
 
 TODO - put the service configuration in a setup file
 
 debugging service:
 ```shell
-sudo journalctl -u radio.service | tail
+journalctl --user-unit radio.service | tail
 ```
 
 ### forcing mono:
