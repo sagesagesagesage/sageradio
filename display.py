@@ -19,7 +19,9 @@ class Display(object):
     def set_channel(self, channel_name):
         
         if len(channel_name) > 4:
-            self.display.marquee(channel_name, 0.2)
+            # this seems to hijack the program
+            #self.display.marquee(channel_name, 0.2)
+            self.display.print(channel_name[0:4])
         else:
             self.display.print(channel_name)
 
