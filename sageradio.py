@@ -8,12 +8,11 @@ import time
 
 from display import Display
 
+from stations import stations
+
 GPIO.setmode(GPIO.BCM)
 
 #google configuring pulse audio for mono - it works! 
-
-streams_loc = "/home/pi/sageradio/"
-streams = ["WFMU.pls", "ROCK.pls", "DIFM-Trance.pls", "CHRP.m3u", "ICRT.m3u", "BAY1.m3u"]
 
 def play(cmd):
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True, preexec_fn = os.setsid)
@@ -33,12 +32,6 @@ for i in range(5):
     time.sleep(0.2)
     GPIO.output(station_led, GPIO.LOW)
     time.sleep(0.2)
-
-#while True:
-#    for switch in switches:
-#        print("Channel {} state: {}".format(switch, GPIO.input(switch)))
-#    time.sleep(0.5)
-#    print()
 
 os.system("killall vlc")
 
@@ -84,10 +77,10 @@ while True:
                 os.killpg(os.getpgid(p.pid), signal.SIGTERM)
                 os.system("killall vlc")
 
-                cmd = "cvlc {}\"german radio tuning.mp3\" --start-time {} ".format(streams_loc, random.randrange(0, 15))
-                print(cmd)
+                #cmd = "cvlc {}\"german radio tuning.mp3\" --start-time {} ".format(streams_loc, random.randrange(0, 15))
+                #print(cmd)
 
-                p = play(cmd)
+                #p = play(cmd)
 
             # start the new station 
             else: 
@@ -98,10 +91,10 @@ while True:
                     pass
                 GPIO.output(station_led, GPIO.HIGH)
                 
-                stream = streams[active_index%len(streams)]
-                stream_name = stream[0:4] 
-                #stream_name = stream.split('-')[0]
-                cmd = "cvlc {}\"{}\"".format(streams_loc, stream)
+                stream_name = list(stations.keys())[active_index % len(stations)]
+                stream_url = stations[stream_name]
+                
+                cmd = "cvlc {}".format(stream_url)
                 print(cmd)
 
                 p = play(cmd)
