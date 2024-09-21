@@ -36,7 +36,7 @@ for i in range(5):
 os.system("killall vlc")
 
 # Max out the volume
-os.system("amixer set Master 65535")
+os.system("amixer set Master 50000")
 def get_active_index():
     active_index = -1
     for index, switch in enumerate(switches):
