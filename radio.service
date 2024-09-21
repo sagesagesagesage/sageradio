@@ -2,10 +2,11 @@
 Description=sageradio
 After=network-online.target
 [Service]
+User=srammie
 Type=oneshot
 Environment=XDG_RUNTIME_DIR=/run/user/1000
-ExecStart=python /home/pi/sageradio/sageradio.py
-WorkingDirectory=/home/pi/sageradio
+ExecStart=python /home/srammie/sageradio/sageradio.py
+WorkingDirectory=/home/srammie/sageradio
 StandardOutput=inherit
 StandardError=inherit
 [Install]
