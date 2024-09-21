@@ -6,6 +6,11 @@ install vlc
 sudo apt install vlc
 ```
 
+Install the Adafruit Circuitpython stuff for the display
+```shell
+pip3 install adafruit-circuitpython-adafruitio
+```
+
 ### systemd service
 Copy `radio.service` to `~/local/share/systmed/user/` and enable service with:
 ```shell
@@ -30,16 +35,6 @@ load-module module-remap-sink sink_name=mono master=alsa_output.platform-bcm2835
 set-default-sink mono
 ```
 
-or for the hifiberry-amp-hat (command pacmd to find sink name, seems like you need to play some audio before running this command to get pulse daemon started)
-```shell
-load-module module-remap-sink sink_name=mono master=alsa_output.platform-soc_sound.stereo-fallback channels=2 channel_map=mono,mono
-
-set-default-sink mono
-```
-
 ### hardware configuration: 
 ![Channel Assignment](channel_assignment.png)
-
-### other notes
-if using an i2s dac make sure gpio channels used in radio script are not overlapping with dac interface
 
