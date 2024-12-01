@@ -8,7 +8,8 @@ sudo apt install vlc
 
 Install the Adafruit Circuitpython stuff for the display
 ```shell
-pip3 install adafruit-circuitpython-adafruitio
+pip3 install adafruit-circuitpython-adafruitio --break-system-packages
+pip install adafruit-circuitpython-ht16k33 --break-system-packages
 ```
 
 ### systemd service
