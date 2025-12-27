@@ -7,6 +7,9 @@ import random
 import RPi.GPIO as GPIO
 import time
 
+
+from timer import CDTimer
+
 from display import Display
 
 from stations import stations
@@ -37,7 +40,7 @@ for i in range(5):
 os.system("killall vlc")
 
 # Max out the volume
-os.system("amixer set Master 50000")
+os.system("amixer set Master 65535")
 def get_active_index():
     active_index = -1
     for index, switch in enumerate(switches):
@@ -50,19 +53,30 @@ active_index = -1
 last_active_index = -1
 
 d = Display()
+timer = CDTimer()
+timer.start(1)
+
+
+def periodic_msg(msg):
+    if timer.completed():
+        print(msg)
+        timer.restart()
+
 while True:
     
     active_index = get_active_index()
     
 
     if (GPIO.input(power_sw)):
+        periodic_msg("Power switch off...")
         GPIO.output(station_led, GPIO.LOW)
-        os.system("killall vlc")
+        os.system("killall vlc > /dev/null 2>&1")
         last_active_index = -1
         d.clear()
     else:
         #display "static" on LED
         if active_index == -1:
+            periodic_msg("Active index = -1... play static")
             val = random.random()
             if val < 0.2:
                 GPIO.output(station_led, GPIO.HIGH)
